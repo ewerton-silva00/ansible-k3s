@@ -1,38 +1,44 @@
-Role Name
+k3s
 =========
 
-A brief description of the role goes here.
+Ansible Role to install Lightweight Kubernetes (k3s).
 
 Requirements
-------------
 
-Any pre-requisites that may not be covered by Ansible itself or the role should be mentioned here. For instance, if the role uses the EC2 module, it may be a good idea to mention in this section that the boto package is required.
+Install [`kubernetes.core`](https://docs.ansible.com/ansible/latest/collections/kubernetes/core/k8s_module.html) collection (version 2.2.2).
+
+```bash
+ansible-galaxy collection install kubernetes.core
+```
 
 Role Variables
 --------------
 
-A description of the settable variables for this role should go here, including any variables that are in defaults/main.yml, vars/main.yml, and any variables that can/should be set via parameters to the role. Any variables that are read from other roles and/or the global scope (ie. hostvars, group vars, etc.) should be mentioned here as well.
+```
+---
+# K3s version (kubernetes version)
+# See: https://github.com/k3s-io/k3s/releases
+k3s_release_version: 1.19.16
 
-Dependencies
-------------
+# Directory to hold state. Defaults to '/var/lib/rancher/k3s'
+k3s_server_data_dir: ''
 
-A list of other roles hosted on Galaxy should go here, plus any details in regards to parameters that may need to be set for other roles, or variables that are used from other roles.
+# Do not deploy packaged components and delete any deployed components (valid items: coredns, servicelb, traefik,local-storage, metrics-server)
+k3s_server_disable_services: []
 
-Example Playbook
-----------------
+# Default local storage path for local provisioner storage class. Defaults to '/var/lib/rancher/k3s/storage'
+k3s_server_local_storage_path: ''
 
-Including an example of how to use your role (for instance, with variables passed in as parameters) is always nice for users too:
-
-    - hosts: servers
-      roles:
-         - { role: username.rolename, x: 42 }
+# Node labels
+k3s_server_node_labels: []
+```
 
 License
 -------
 
-BSD
+MIT
 
 Author Information
 ------------------
 
-An optional section for the role authors to include contact information, or a website (HTML is not allowed).
+Ewerton Silva <ewerton116@gmail.com>

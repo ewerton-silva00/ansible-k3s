@@ -43,14 +43,8 @@
     daemon_reload: yes
   tags: k3s
 
-- name: K3s | Create kubectl symlink
-  ansible.builtin.file:
-    src: /usr/local/bin/k3s
-    dest: /usr/local/bin/kubectl
-    state: link
-  tags: k3s
-
-- name: K3s | Kubectl command-line completion
-  ansible.builtin.shell:
-    cmd: /usr/local/bin/kubectl completion bash > /etc/bash_completion.d/kubectl
+- name: K3s | Set KUBECONFIG environment variable on /etc/environment
+  ansible.builtin.lineinfile:
+    path: /etc/environment
+    line: "export KUBECONFIG=/etc/rancher/k3s/k3s.yaml"
   tags: k3s
