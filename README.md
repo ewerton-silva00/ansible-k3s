@@ -33,6 +33,21 @@ k3s_server_local_storage_path: ''
 k3s_server_node_labels: []
 ```
 
+Example Playbook
+----------------
+
+```yaml
+- name: Ansible Playbook to install and configure Lightweight Kubernetes (k3s)
+  hosts: all
+  gather_facts: yes
+  any_errors_fatal: true
+  become: true
+  roles:
+    - role: k3s
+      tags:
+        - k3s
+```
+
 License
 -------
 
