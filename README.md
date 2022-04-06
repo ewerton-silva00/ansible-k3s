@@ -3,14 +3,6 @@ k3s
 
 Ansible Role to install Lightweight Kubernetes (k3s).
 
-Requirements
-
-Install [`kubernetes.core`](https://docs.ansible.com/ansible/latest/collections/kubernetes/core/k8s_module.html) collection (version 2.2.2).
-
-```bash
-ansible-galaxy collection install kubernetes.core
-```
-
 Role Variables
 --------------
 
