@@ -7,16 +7,11 @@ k3s_release_version: 1.19.16
 k3s_server_data_dir: ''
 
 # Do not deploy packaged components and delete any deployed components (valid items: coredns, servicelb, traefik,local-storage, metrics-server)
-k3s_server_disable_services:
-  - servicelb
-  - traefik
+k3s_server_disable_services: []
 
 # Default local storage path for local provisioner storage class. Defaults to '/var/lib/rancher/k3s/storage'
 k3s_server_local_storage_path: ''
 
 # Node labels
-k3s_server_node_labels:
-  - "dojot.components/dojot=enabled"
-  - "dojot.components/kafka=enabled"
-  - "dojot.components/x509=enabled"
-  - "dojot.components/vernemq=enabled"
+k3s_server_node_labels: []
+
