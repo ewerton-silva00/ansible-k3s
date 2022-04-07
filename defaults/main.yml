@@ -14,4 +14,3 @@ k3s_server_local_storage_path: ''
 
 # Node labels
 k3s_server_node_labels: []
-

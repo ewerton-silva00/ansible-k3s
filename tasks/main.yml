@@ -66,3 +66,11 @@
   ansible.builtin.shell:
     cmd: /usr/local/bin/kubectl completion bash > /etc/bash_completion.d/kubectl
   tags: k3s
+
+- name: K3s | Set KUBECONFIG environment variable on /etc/environment
+  ansible.builtin.lineinfile:
+    path: /etc/profile.d/k3s_kubeconfig.sh
+    line: "export KUBECONFIG=/etc/rancher/k3s/k3s.yaml"
+    state: present
+    create: yes
+  tags: k3s
